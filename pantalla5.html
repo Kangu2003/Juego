@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardianes entre la Sierra y el Mar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+
+    <div class="header">
+        <div class="title-main">
+            🏔️ Guardianes entre la<br>
+            <span class="sierra">Sierra</span> y el <span class="mar">Mar</span> 🌊
+        </div>
+        <div class="subtitle">Aprendemos a respetar jugando juntos</div>
+        <div class="progress-wrap" id="progressBar"></div>
+    </div>
+
+    <div id="game">
+        <div class="screen active" id="s5">
+            <div class="card">
+                <div class="panel-num">5</div>
+                <div class="card-title blue-color">¿Cómo nos sentimos?</div>
+                <div class="card-desc">Elige la emoción principal que sentía José cuando se burlaron de sus guardianes.
+                </div>
+                <div class="emotions-grid">
+                    <button class="emotion-btn" onclick="checkEmotion2(this,'correct')">
+                        <span class="emotion-emoji">😢</span>
+                        <div class="emotion-label">Triste</div>
+                    </button>
+                    <button class="emotion-btn" onclick="checkEmotion2(this,'wrong')">
+                        <span class="emotion-emoji">😠</span>
+                        <div class="emotion-label">Enojado</div>
+                    </button>
+                    <button class="emotion-btn" onclick="checkEmotion2(this,'wrong')">
+                        <span class="emotion-emoji">😄</span>
+                        <div class="emotion-label">Feliz</div>
+                    </button>
+                    <button class="emotion-btn" onclick="checkEmotion2(this,'wrong')">
+                        <span class="emotion-emoji">😨</span>
+                        <div class="emotion-label">Asustado</div>
+                    </button>
+                    <button class="emotion-btn" onclick="checkEmotion2(this,'wrong')">
+                        <span class="emotion-emoji">😌</span>
+                        <div class="emotion-label">Calmado</div>
+                    </button>
+                </div>
+                <div class="feedback good" id="fb5good" style="display:none">
+                    ✅ ¡Correcto! José se sintió <strong>triste</strong> porque se burlaron de sus guardianes.
+                    Es importante reconocer las emociones de los demás.
+                </div>
+                <div class="feedback bad" id="fb5bad" style="display:none">
+                    ❌ ¡Inténtalo de nuevo! José se sintió triste porque algo muy especial para él fue rechazado.
+                </div>
+                <div class="nav-btns">
+                    <button class="btn btn-primary" onclick="goTo(4)">← Atrás</button>
+                    <button class="btn btn-green" id="btn5next" style="display:none" onclick="goTo(6)">Siguiente
+                        →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>const currentScreen = 5;</script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardianes entre la Sierra y el Mar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+
+    <div class="header">
+        <div class="title-main">
+            🏔️ Guardianes entre la<br>
+            <span class="sierra">Sierra</span> y el <span class="mar">Mar</span> 🌊
+        </div>
+        <div class="subtitle">Aprendemos a respetar jugando juntos</div>
+        <div class="progress-wrap" id="progressBar"></div>
+    </div>
+
+    <div id="game">
+        <div class="screen active" id="s8">
+            <div class="card">
+                <div class="panel-num">8</div>
+                <div class="card-title purple-color">🤝 Nuestros Acuerdos</div>
+                <div class="card-desc">Selecciona los acuerdos que nos ayudan a convivir en paz. ¡Puedes elegir varios!
+                </div>
+                <div class="agreements-grid">
+                    <button class="agreement-btn" onclick="toggleAgreement(this)">
+                        <span class="agreement-emoji">❤️</span>
+                        <div class="agreement-label">Respetar</div>
+                    </button>
+                    <button class="agreement-btn" onclick="toggleAgreement(this)">
+                        <span class="agreement-emoji">🤲</span>
+                        <div class="agreement-label">Compartir</div>
+                    </button>
+                    <button class="agreement-btn" onclick="toggleAgreement(this)">
+                        <span class="agreement-emoji">👂</span>
+                        <div class="agreement-label">Escuchar</div>
+                    </button>
+                    <button class="agreement-btn" onclick="toggleAgreement(this)">
+                        <span class="agreement-emoji">🚫😂</span>
+                        <div class="agreement-label">No burlarse</div>
+                    </button>
+                </div>
+                <div class="feedback good" id="fb8" style="display:none">
+                    🌿 ¡Excelente! <strong>¡Juntos cuidamos a nuestros amigos y nuestras diferencias!</strong><br>
+                    Estos acuerdos nos hacen una comunidad más justa y amorosa.
+                </div>
+                <div class="nav-btns">
+                    <button class="btn btn-primary" onclick="goTo(7)">← Atrás</button>
+                    <button class="btn btn-green" id="btn8next" style="display:none" onclick="goTo(9)">Siguiente
+                        →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>const currentScreen = 8;</script>
+    <script src="script.js"></script>
+</body>
+</html>

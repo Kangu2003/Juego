@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardianes entre la Sierra y el Mar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+
+    <div class="header">
+        <div class="title-main">
+            🏔️ Guardianes entre la<br>
+            <span class="sierra">Sierra</span> y el <span class="mar">Mar</span> 🌊
+        </div>
+        <div class="subtitle">Aprendemos a respetar jugando juntos</div>
+        <div class="progress-wrap" id="progressBar"></div>
+    </div>
+
+    <div id="game">
+        <div class="screen active" id="s10">
+            <div class="card" style="text-align: center;">
+                <div class="card-title">🎉 ¡Eres un Guardián!</div>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <div class="final-message">
+                    "Cuando respetamos las diferencias, construimos paz."<br>
+                    <span style="font-size:1rem;font-weight:600;color:var(--earth)">
+                        ¡Gracias por ser guardián de la Sierra y el Mar! 🏔️🌊
+                    </span>
+                </div>
+
+                <div class="tech-container"
+                    style="text-align: left; background: #F8F9F9; padding: 15px; border-radius: 12px; margin-top: 20px;">
+                    <h3 class="card-title tech-title" style="font-size: 1.1rem;">FICHA TÉCNICA DEL KIT</h3>
+                    <table class="tech-table">
+                        <tr>
+                            <th>Elemento</th>
+                            <th>Material</th>
+                            <th>Características</th>
+                        </tr>
+                        <tr>
+                            <td>Muñecos</td>
+                            <td>Barro y madera reciclada</td>
+                            <td>Resistentes y ecológicos</td>
+                        </tr>
+                        <tr>
+                            <td>Tapete</td>
+                            <td>Tela reutilizada y pintura textil</td>
+                            <td>Lavable</td>
+                        </tr>
+                        <tr>
+                            <td>Tarjetas</td>
+                            <td>Cartón laminado reciclable</td>
+                            <td>Durables</td>
+                        </tr>
+                        <tr>
+                            <td>Bastón de palabra</td>
+                            <td>Madera y fibras naturales</td>
+                            <td>Seguro para niños</td>
+                        </tr>
+                        <tr>
+                            <td>Caja sensorial</td>
+                            <td>Materiales del entorno</td>
+                            <td>Estimulación multisensorial</td>
+                        </tr>
+                    </table>
+
+                    <h3 class="card-title" style="font-size: 1.1rem; margin-top: 15px;">¿PARA QUÉ SIRVE ESTE KIT?</h3>
+                    <ul class="benefits-list">
+                        <li>Promueve la convivencia pacífica</li>
+                        <li>Reconoce y valora la diversidad cultural</li>
+                        <li>Ayuda a regular emociones</li>
+                        <li>Fomenta el diálogo y la resolución restaurativa de conflictos</li>
+                    </ul>
+                </div>
+
+                <div class="btn-center" style="margin-top: 20px;">
+                    <button class="btn btn-sun" onclick="restart()">🔄 Jugar de nuevo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>const currentScreen = 10;</script>
+    <script src="script.js"></script>
+</body>
+</html>

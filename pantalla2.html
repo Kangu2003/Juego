@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardianes entre la Sierra y el Mar</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-image: url('img/tercera.jpeg') !important;
+            background-size: contain;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-color: #FDF9F1; /* Color crema neutro para los bordes */
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .p2-bottom-buttons {
+            position: fixed;
+            bottom: 4vh; /* Mantiene una distancia proporcional desde el fondo */
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            z-index: 10;
+        }
+
+        .emotion-btn-custom {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 25px;
+            border-radius: 30px;
+            border: 3px solid white;
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: transform 0.2s, opacity 0.3s;
+        }
+
+        .emotion-btn-custom:active {
+            transform: scale(0.95);
+        }
+
+        .blue-btn { background-color: #6FA2D3; }
+        .red-btn { background-color: #D36F6F; }
+        .purple-btn { background-color: #A26FD3; }
+
+        .emotion-btn-custom .icon {
+            font-size: 1.6rem;
+        }
+
+        .next-circle-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #4CAF50;
+            color: white;
+            border: 4px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            margin-left: 20px;
+            transition: transform 0.2s;
+        }
+
+        .next-circle-btn:active {
+            transform: scale(0.95);
+        }
+
+        .p2-btn-audio {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #5EAA61;
+            color: white;
+            border: 4px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+        }
+
+        .p2-btn-audio:active {
+            transform: scale(0.95);
+        }
+
+        /* Feedback styles */
+        .emotion-btn-custom.correct {
+            border-color: #4CAF50 !important;
+            box-shadow: 0 0 15px #4CAF50;
+            background-color: #4CAF50 !important;
+        }
+        
+        .emotion-btn-custom.wrong {
+            border-color: #F44336 !important;
+            animation: shake 0.4s;
+        }
+
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="game">
+        <div class="screen active" id="s2">
+            
+            <div class="p2-bottom-buttons">
+                <!-- Botón de audio -->
+                <div class="p2-btn-audio" onclick="alert('Reproduciendo audio...')">🔊</div>
+
+                <!-- Botones de emociones -->
+                <button class="emotion-btn-custom blue-btn" onclick="selectEmotion(this, 'correct')">
+                    <span class="icon">😢</span> Triste
+                </button>
+                <button class="emotion-btn-custom red-btn" onclick="selectEmotion(this, 'correct')">
+                    <span class="icon">😠</span> Enojado
+                </button>
+                <button class="emotion-btn-custom purple-btn" onclick="selectEmotion(this, 'wrong')">
+                    <span class="icon">❓</span> Confundido
+                </button>
+                
+                <!-- Botón siguiente, oculto inicialmente -->
+                <button class="next-circle-btn" id="btnNext" style="display: none;" onclick="goTo(3)">➔</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const currentScreen = 2;
+
+        function selectEmotion(btn, result) {
+            // Reiniciar botones
+            document.querySelectorAll('.emotion-btn-custom').forEach(b => {
+                b.classList.remove('correct', 'wrong');
+                b.style.opacity = '0.5';
+            });
+            
+            btn.style.opacity = '1';
+
+            if (result === 'correct') {
+                btn.classList.add('correct');
+                document.getElementById('btnNext').style.display = 'flex';
+            } else {
+                btn.classList.add('wrong');
+                document.getElementById('btnNext').style.display = 'none';
+                
+                // Quitar el estado de error después de un rato para volver a intentar
+                setTimeout(() => {
+                    btn.classList.remove('wrong');
+                    btn.style.opacity = '1';
+                }, 1000);
+            }
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

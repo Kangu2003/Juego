@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardianes entre la Sierra y el Mar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+
+    <div class="header">
+        <div class="title-main">
+            🏔️ Guardianes entre la<br>
+            <span class="sierra">Sierra</span> y el <span class="mar">Mar</span> 🌊
+        </div>
+        <div class="subtitle">Aprendemos a respetar jugando juntos</div>
+        <div class="progress-wrap" id="progressBar"></div>
+    </div>
+
+    <div id="game">
+        <!-- PANTALLA 0 · Inicio -->
+        <div class="screen active" id="s0" style="min-height: 60vh; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 5vh;">
+            <button class="btn btn-green" onclick="goTo(1)" style="font-size: 1.5rem; padding: 15px 40px; box-shadow: 0 6px 20px rgba(0,0,0,0.6); animation: bounce 2s infinite;">🚀 Comenzar aventura</button>
+        </div>
+    </div>
+
+    <script>const currentScreen = 0;</script>
+    <script src="script.js"></script>
+</body>
+</html>

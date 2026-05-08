@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardianes entre la Sierra y el Mar</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-image: url('img/segunda.png') !important;
+            background-size: cover;
+            background-position: center bottom;
+            background-repeat: no-repeat;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Ocultar la cabecera por defecto para hacer la pantalla completa */
+        .header {
+            display: none;
+        }
+
+        #s1 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .p1-top {
+            position: relative;
+            text-align: center;
+            padding-top: 10px;
+        }
+
+        .p1-badge {
+            position: absolute;
+            top: 0;
+            left: 10px;
+            background-color: #2D7A51;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 900;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        .p1-title {
+            color: #613318;
+            font-size: 2.2rem;
+            margin: 0 0 15px 0;
+            font-weight: 900;
+            text-shadow: 2px 2px 0px rgba(255,255,255,0.9), -2px -2px 0px rgba(255,255,255,0.9), 2px -2px 0px rgba(255,255,255,0.9), -2px 2px 0px rgba(255,255,255,0.9);
+        }
+
+        .p1-text {
+            color: #111;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 8px 0;
+            text-shadow: 1px 1px 0px rgba(255,255,255,0.9), -1px -1px 0px rgba(255,255,255,0.9), 1px -1px 0px rgba(255,255,255,0.9), -1px 1px 0px rgba(255,255,255,0.9);
+        }
+
+        .p1-bottom-area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5vw;
+            padding-bottom: 80px; /* Espacio para los botones de navegación */
+            margin-top: auto;
+        }
+
+        .p1-pill-camilo {
+            background-color: #4A90E2;
+            color: white;
+            padding: 8px 40px;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 1.4rem;
+            border: 3px solid white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .p1-pill-jose {
+            background-color: #5EAA61;
+            color: white;
+            padding: 8px 40px;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 1.4rem;
+            border: 3px solid white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .p1-btn-audio {
+            background-color: #5EAA61;
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            border: 4px solid white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .p1-btn-audio:active {
+            transform: scale(0.95);
+        }
+
+
+
+        .nav-floating {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10px;
+            box-sizing: border-box;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="title-main">
+            🏔️ Guardianes entre la<br>
+            <span class="sierra">Sierra</span> y el <span class="mar">Mar</span> 🌊
+        </div>
+        <div class="subtitle">Aprendemos a respetar jugando juntos</div>
+        <div class="progress-wrap" id="progressBar"></div>
+    </div>
+
+    <div id="game">
+        <div class="screen active" id="s1">
+
+            <div class="nav-floating">
+                <button class="btn btn-primary" onclick="goTo(0)">← Atrás</button>
+                <button class="btn btn-green" onclick="goTo(2)">Siguiente →</button>
+            </div>
+
+            <div class="p1-top">
+                <div class="p1-badge">2</div>
+                <h1 class="p1-title">Conoce a nuestros amigos</h1>
+                <p class="p1-text">Camilo ama construir castillos del mar.</p>
+                <p class="p1-text">José trae guardianes especiales<br>desde la Sierra.</p>
+            </div>
+
+            <div class="p1-bottom-area">
+                <div class="p1-btn-audio" onclick="alert('Reproduciendo audio...')">🔊</div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>const currentScreen = 1;</script>
+    <script src="script.js"></script>
+</body>
+</html>

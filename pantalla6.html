@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardianes entre la Sierra y el Mar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+
+    <div class="header">
+        <div class="title-main">
+            🏔️ Guardianes entre la<br>
+            <span class="sierra">Sierra</span> y el <span class="mar">Mar</span> 🌊
+        </div>
+        <div class="subtitle">Aprendemos a respetar jugando juntos</div>
+        <div class="progress-wrap" id="progressBar"></div>
+    </div>
+
+    <div id="game">
+        <div class="screen active" id="s6">
+            <div class="card">
+                <div class="panel-num">6</div>
+                <div class="card-title teal-color">🏰 Construyamos Juntos</div>
+                <div class="card-desc">Arrastra los elementos de la Sierra y del Mar al castillo intercultural.
+                    ¡Combinemos las dos culturas!</div>
+                <div class="drag-area">
+                    <!-- Sierra -->
+                    <div class="drag-zone sierra" id="zone-sierra" ondragover="dragOver(event)"
+                        ondrop="dropItem(event,'sierra')">
+                        <div class="drag-zone-title" style="color:var(--mountain-dark)">🏔️ Sierra</div>
+                        <div class="drag-items" id="items-sierra">
+                            <div class="drag-item" draggable="true" ondragstart="dragStart(event)" data-zone="sierra">
+                                🧶<span>Tejidos</span></div>
+                            <div class="drag-item" draggable="true" ondragstart="dragStart(event)" data-zone="sierra">
+                                🧸<span>Muñecos</span></div>
+                            <div class="drag-item" draggable="true" ondragstart="dragStart(event)" data-zone="sierra">
+                                🌾<span>Semillas</span></div>
+                        </div>
+                    </div>
+                    <!-- Castillo -->
+                    <div class="drag-zone castle" id="zone-castle" ondragover="dragOver(event)"
+                        ondrop="dropItem(event,'castle')">
+                        <div class="drag-zone-title" style="color:var(--earth)">🏰 Castillo Intercultural</div>
+                        <div class="drag-items" id="items-castle"></div>
+                    </div>
+                    <!-- Mar -->
+                    <div class="drag-zone mar" id="zone-mar" ondragover="dragOver(event)"
+                        ondrop="dropItem(event,'mar')">
+                        <div class="drag-zone-title" style="color:var(--ocean-dark)">🌊 Mar</div>
+                        <div class="drag-items" id="items-mar">
+                            <div class="drag-item" draggable="true" ondragstart="dragStart(event)" data-zone="mar">
+                                🐚<span>Conchas</span></div>
+                            <div class="drag-item" draggable="true" ondragstart="dragStart(event)" data-zone="mar">
+                                🐟<span>Peces</span></div>
+                            <div class="drag-item" draggable="true" ondragstart="dragStart(event)" data-zone="mar">
+                                ⭐<span>Estrellas</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="feedback good" id="fb6" style="display:none">
+                    🏰 ¡Fantástico! Al unir elementos de ambas culturas creamos algo más hermoso.
+                    <strong>¡Así somos más fuertes juntos!</strong>
+                </div>
+                <div class="nav-btns">
+                    <button class="btn btn-primary" onclick="goTo(5)">← Atrás</button>
+                    <button class="btn btn-green" id="btn6next" style="display:none" onclick="goTo(7)">Siguiente
+                        →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>const currentScreen = 6;</script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardianes entre la Sierra y el Mar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+
+    <div class="header">
+        <div class="title-main">
+            🏔️ Guardianes entre la<br>
+            <span class="sierra">Sierra</span> y el <span class="mar">Mar</span> 🌊
+        </div>
+        <div class="subtitle">Aprendemos a respetar jugando juntos</div>
+        <div class="progress-wrap" id="progressBar"></div>
+    </div>
+
+    <div id="game">
+        <div class="screen active" id="s3">
+            <div class="card">
+                <div class="panel-num">3</div>
+                <div class="card-title blue-color">¿Cómo crees que se sintió José?</div>
+                <div class="card-desc">Elige la emoción que sentía José cuando los niños se burlaron de sus guardianes.
+                </div>
+                <div class="emotions-grid">
+                    <button class="emotion-btn" onclick="checkEmotion(this,'wrong')">
+                        <span class="emotion-emoji">😢</span>
+                        <div class="emotion-label">Triste</div>
+                    </button>
+                    <button class="emotion-btn" onclick="checkEmotion(this,'wrong')">
+                        <span class="emotion-emoji">😠</span>
+                        <div class="emotion-label">Enojado</div>
+                    </button>
+                    <button class="emotion-btn" onclick="checkEmotion(this,'correct')">
+                        <span class="emotion-emoji">😢😠</span>
+                        <div class="emotion-label">Triste y Enojado</div>
+                    </button>
+                    <button class="emotion-btn" onclick="checkEmotion(this,'wrong')">
+                        <span class="emotion-emoji">😕</span>
+                        <div class="emotion-label">Confundido</div>
+                    </button>
+                </div>
+                <div class="feedback good" id="fb3good" style="display:none">
+                    ✅ ¡Muy bien! José se sintió <strong>triste y enojado</strong> porque se burlaron de sus guardianes
+                    especiales de la Sierra.
+                </div>
+                <div class="feedback bad" id="fb3bad" style="display:none">
+                    ❌ Piénsalo de nuevo... ¿Cómo te sentirías tú si alguien se burlara de algo especial para ti?
+                </div>
+                <div class="nav-btns">
+                    <button class="btn btn-primary" onclick="goTo(2)">← Atrás</button>
+                    <button class="btn btn-green" id="btn3next" style="display:none" onclick="goTo(4)">Siguiente
+                        →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>const currentScreen = 3;</script>
+    <script src="script.js"></script>
+</body>
+</html>

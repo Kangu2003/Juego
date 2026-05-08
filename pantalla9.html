@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardianes entre la Sierra y el Mar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+
+    <div class="header">
+        <div class="title-main">
+            🏔️ Guardianes entre la<br>
+            <span class="sierra">Sierra</span> y el <span class="mar">Mar</span> 🌊
+        </div>
+        <div class="subtitle">Aprendemos a respetar jugando juntos</div>
+        <div class="progress-wrap" id="progressBar"></div>
+    </div>
+
+    <div id="game">
+        <div class="screen active" id="s9">
+            <div class="card">
+                <div class="panel-num">9</div>
+                <div class="card-title teal-color">📦 Caja Sensorial Intercultural</div>
+                <div class="card-desc">Explora con tus sentidos los materiales de la Sierra y del Mar. ¡Haz clic en cada
+                    uno!</div>
+                <div class="sensory-grid">
+                    <div class="sensory-item" onclick="exploreSensory(this)">
+                        <div class="sensory-emoji">🏖️</div>
+                        <div class="sensory-name">Arena</div>
+                        <div class="sensory-desc">Suave y tibia. Color dorado. ¡Puedes hacer castillos!</div>
+                    </div>
+                    <div class="sensory-item" onclick="exploreSensory(this)">
+                        <div class="sensory-emoji">🌾</div>
+                        <div class="sensory-name">Semillas</div>
+                        <div class="sensory-desc">Pequeñas y duras. Muchos colores. Vienen de la tierra.</div>
+                    </div>
+                    <div class="sensory-item" onclick="exploreSensory(this)">
+                        <div class="sensory-emoji">🟫</div>
+                        <div class="sensory-name">Barro</div>
+                        <div class="sensory-desc">Frío y moldeable. Huele a tierra. Con él se hacen los guardianes.
+                        </div>
+                    </div>
+                    <div class="sensory-item" onclick="exploreSensory(this)">
+                        <div class="sensory-emoji">🧶</div>
+                        <div class="sensory-name">Tejidos</div>
+                        <div class="sensory-desc">Suaves y coloridos. Con patrones especiales de la Sierra.</div>
+                    </div>
+                    <div class="sensory-item" onclick="exploreSensory(this)">
+                        <div class="sensory-emoji">🐚</div>
+                        <div class="sensory-name">Conchas</div>
+                        <div class="sensory-desc">Lisas y brillantes. Guardan el sonido del mar dentro.</div>
+                    </div>
+                </div>
+                <div class="feedback good" id="fb9" style="display:none">
+                    🌈 ¡Bien explorado! ¿Ves qué bonitos son los materiales de ambas culturas?
+                    <strong>¡Cada textura y color cuenta una historia!</strong>
+                </div>
+                <div class="nav-btns">
+                    <button class="btn btn-primary" onclick="goTo(8)">← Atrás</button>
+                    <button class="btn btn-green" id="btn9next" style="display:none" onclick="goTo(10)">¡Finalizar!
+                        🎉</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>const currentScreen = 9;</script>
+    <script src="script.js"></script>
+</body>
+</html>
