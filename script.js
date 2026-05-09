@@ -97,6 +97,7 @@ function checkEmotion2(btn, result) {
     btn.classList.add(result);
 
     if (result === 'correct') {
+        new Audio('audio/audio5.mp3').play();
         showFeedback('fb5good');
         setTimeout(() => (document.getElementById('btn5next').style.display = 'inline-flex'), 800);
     } else {

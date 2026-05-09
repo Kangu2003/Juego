@@ -1,53 +1,108 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guardianes entre la Sierra y el Mar</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-image: url('img/cuarta.jpeg') !important;
+            background-size: contain;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-color: #FDF9F1;
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .header {
+            background: none !important;
+            padding-top: 5px !important;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .p4-bottom-buttons {
+            position: fixed;
+            bottom: 5vh;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5vw;
+            box-sizing: border-box;
+            z-index: 20;
+        }
+
+        .center-audio {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .p4-btn-audio {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: #5EAA61;
+            color: white;
+            border: 4px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+        }
+
+        .p4-btn-audio:active {
+            transform: scale(0.95);
+        }
+    </style>
 </head>
+
 <body>
     <div class="cloud cloud1"></div>
     <div class="cloud cloud2"></div>
 
     <div class="header">
-        <div class="title-main">
-            🏔️ Guardianes entre la<br>
-            <span class="sierra">Sierra</span> y el <span class="mar">Mar</span> 🌊
-        </div>
-        <div class="subtitle">Aprendemos a respetar jugando juntos</div>
+
+
         <div class="progress-wrap" id="progressBar"></div>
     </div>
 
+
+
     <div id="game">
         <div class="screen active" id="s4">
-            <div class="card">
-                <div class="panel-num">4</div>
-                <div class="card-title purple-color">🐚 Objeto de la Palabra</div>
-                <div class="card-desc">El caracol del respeto nos ayuda a escuchar y hablar con respeto. ¡Haz clic en el
-                    caracol!</div>
-                <div class="caracol-zone">
-                    <div class="caracol-img" onclick="activateCaracol()" title="Haz clic">🐚</div>
-                    <div class="speech-bubbles" id="speechBubbles">
-                        <div class="speech">👋 Quien tiene el caracol puede hablar.</div>
-                        <div class="speech">👂 Los demás escuchamos con atención.</div>
-                        <div class="speech">🌿 Mostramos respeto a todos.</div>
-                    </div>
-                </div>
-                <div class="feedback good" id="fb4" style="display:none">
-                    ✅ ¡Excelente! El caracol nos recuerda que <strong>cada voz merece ser escuchada</strong>.
-                    Las culturas de la Sierra y del Mar tienen mucho que enseñarnos.
-                </div>
-                <div class="nav-btns">
-                    <button class="btn btn-primary" onclick="goTo(3)">← Atrás</button>
-                    <button class="btn btn-green" id="btn4next" style="display:none" onclick="goTo(5)">Siguiente
-                        →</button>
-                </div>
+            <div class="p4-bottom-buttons">
+                <button class="btn btn-primary" onclick="goTo(3)">← Atrás</button>
+                <div class="p4-btn-audio center-audio" onclick="toggleAudio()">🔊</div>
+                <button class="btn btn-green" onclick="goTo(5)">Siguiente →</button>
             </div>
         </div>
     </div>
 
-    <script>const currentScreen = 4;</script>
+    <script>
+        const currentScreen = 4;
+        const screenAudio = new Audio('audio/audio3.mp3');
+        
+        function toggleAudio() {
+            if (screenAudio.paused) {
+                screenAudio.play();
+            } else {
+                screenAudio.pause();
+            }
+        }
+    </script>
     <script src="script.js"></script>
 </body>
+
 </html>

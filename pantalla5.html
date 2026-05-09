@@ -1,50 +1,179 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guardianes entre la Sierra y el Mar</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .emotion-btn {
+            background: white;
+            border: 3px solid #555 !important;
+            border-radius: 16px !important;
+            padding: 0 !important;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s;
+            width: 150px;
+            min-width: unset !important;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-triste {
+            background-color: #82B3D4 !important;
+        }
+
+        .btn-enojado {
+            background-color: #DE6F53 !important;
+        }
+
+        .btn-feliz {
+            background-color: #F8D054 !important;
+        }
+
+        .btn-asustado {
+            background-color: #A388BB !important;
+        }
+
+        .btn-calmado {
+            background-color: #92C25D !important;
+        }
+
+        .emotion-img-box {
+            width: 100%;
+            height: 140px;
+            margin: 0;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            overflow: hidden;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .emotion-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 0;
+        }
+
+        .emotion-label {
+            background-color: white;
+            width: 100%;
+            padding: 10px 0;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #222 !important;
+            border-top: 3px solid #555;
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        .p5-btn-audio {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #5EAA61;
+            color: white;
+            border: 3px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .p5-btn-audio:active {
+            transform: translateX(-50%) scale(0.95);
+        }
+
+        .card {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            padding: 10px 20px !important;
+        }
+
+        .card-title {
+            text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.8);
+        }
+
+        .card-desc {
+            font-weight: 900;
+            font-size: 1.4rem;
+            color: #111;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            margin: 10px auto 25px;
+            border: 2px dashed #999;
+        }
+
+        .emotions-grid {
+            flex-wrap: nowrap !important;
+            gap: 15px;
+            justify-content: center;
+        }
+
+    </style>
 </head>
+
 <body>
     <div class="cloud cloud1"></div>
     <div class="cloud cloud2"></div>
 
     <div class="header">
-        <div class="title-main">
-            🏔️ Guardianes entre la<br>
-            <span class="sierra">Sierra</span> y el <span class="mar">Mar</span> 🌊
-        </div>
-        <div class="subtitle">Aprendemos a respetar jugando juntos</div>
         <div class="progress-wrap" id="progressBar"></div>
     </div>
 
     <div id="game">
         <div class="screen active" id="s5">
             <div class="card">
-                <div class="panel-num">5</div>
                 <div class="card-title blue-color">¿Cómo nos sentimos?</div>
                 <div class="card-desc">Elige la emoción principal que sentía José cuando se burlaron de sus guardianes.
                 </div>
                 <div class="emotions-grid">
-                    <button class="emotion-btn" onclick="checkEmotion2(this,'correct')">
-                        <span class="emotion-emoji">😢</span>
+                    <button class="emotion-btn btn-triste" onclick="checkEmotion2(this,'correct')">
+                        <div class="emotion-img-box">
+                            <img src="img/triste.png" alt="Triste" onerror="this.style.display='none'">
+                        </div>
                         <div class="emotion-label">Triste</div>
                     </button>
-                    <button class="emotion-btn" onclick="checkEmotion2(this,'wrong')">
-                        <span class="emotion-emoji">😠</span>
+                    <button class="emotion-btn btn-enojado" onclick="checkEmotion2(this,'wrong')">
+                        <div class="emotion-img-box">
+                            <img src="img/enojado.png" alt="Enojado" onerror="this.style.display='none'">
+                        </div>
                         <div class="emotion-label">Enojado</div>
                     </button>
-                    <button class="emotion-btn" onclick="checkEmotion2(this,'wrong')">
-                        <span class="emotion-emoji">😄</span>
+                    <button class="emotion-btn btn-feliz" onclick="checkEmotion2(this,'wrong')">
+                        <div class="emotion-img-box">
+                            <img src="img/feliz.png" alt="Feliz" onerror="this.style.display='none'">
+                        </div>
                         <div class="emotion-label">Feliz</div>
                     </button>
-                    <button class="emotion-btn" onclick="checkEmotion2(this,'wrong')">
-                        <span class="emotion-emoji">😨</span>
+                    <button class="emotion-btn btn-asustado" onclick="checkEmotion2(this,'wrong')">
+                        <div class="emotion-img-box">
+                            <img src="img/asustado.png" alt="Asustado" onerror="this.style.display='none'">
+                        </div>
                         <div class="emotion-label">Asustado</div>
                     </button>
-                    <button class="emotion-btn" onclick="checkEmotion2(this,'wrong')">
-                        <span class="emotion-emoji">😌</span>
+                    <button class="emotion-btn btn-calmado" onclick="checkEmotion2(this,'wrong')">
+                        <div class="emotion-img-box">
+                            <img src="img/calmado.png" alt="Calmado" onerror="this.style.display='none'">
+                        </div>
                         <div class="emotion-label">Calmado</div>
                     </button>
                 </div>
@@ -55,8 +184,9 @@
                 <div class="feedback bad" id="fb5bad" style="display:none">
                     ❌ ¡Inténtalo de nuevo! José se sintió triste porque algo muy especial para él fue rechazado.
                 </div>
-                <div class="nav-btns">
+                <div class="nav-btns" style="position: relative;">
                     <button class="btn btn-primary" onclick="goTo(4)">← Atrás</button>
+                    <div class="p5-btn-audio" onclick="toggleAudio()">🔊</div>
                     <button class="btn btn-green" id="btn5next" style="display:none" onclick="goTo(6)">Siguiente
                         →</button>
                 </div>
@@ -64,7 +194,18 @@
         </div>
     </div>
 
-    <script>const currentScreen = 5;</script>
+    <script>
+        const currentScreen = 5;
+        const screenAudio = new Audio('audio/audio4.mp3');
+        function toggleAudio() {
+            if (screenAudio.paused) {
+                screenAudio.play();
+            } else {
+                screenAudio.pause();
+            }
+        }
+    </script>
     <script src="script.js"></script>
 </body>
+
 </html>
