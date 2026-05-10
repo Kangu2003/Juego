@@ -1,71 +1,56 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guardianes entre la Sierra y el Mar</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-image: url('img/quinta.png') !important;
+            background-size: contain !important;
+            background-repeat: no-repeat !important;
+            background-position: center 100px !important;
+        }
+
+        .header {
+            background: linear-gradient(180deg, rgba(201, 234, 245, 1) 40%, rgba(201, 234, 245, 0) 100%) !important;
+            padding-bottom: 40px !important;
+        }
+    </style>
 </head>
+
 <body>
     <div class="cloud cloud1"></div>
     <div class="cloud cloud2"></div>
 
     <div class="header">
-        <div class="title-main">
-            🏔️ Guardianes entre la<br>
-            <span class="sierra">Sierra</span> y el <span class="mar">Mar</span> 🌊
-        </div>
-        <div class="subtitle">Aprendemos a respetar jugando juntos</div>
         <div class="progress-wrap" id="progressBar"></div>
     </div>
 
     <div id="game">
-        <div class="screen active" id="s7">
-            <div class="card">
-                <div class="panel-num">7</div>
-                <div class="card-title orange-color">🔵 Círculo Restaurativo</div>
-                <div class="card-desc">Hablemos y busquemos soluciones juntos. Haz clic en cada pregunta para ver la
-                    respuesta.</div>
-                <div class="circle-questions">
-                    <div class="circle-question" onclick="toggleAnswer('a1')">
-                        <span class="q-icon">🔵</span>
-                        <span>¿Qué pasó?</span>
-                        <span style="margin-left:auto">▼</span>
-                    </div>
-                    <div class="circle-answer" id="a1">
-                        Los niños se burlaron de los muñecos de barro de José sin conocer su significado cultural para
-                        la Sierra.
-                    </div>
-
-                    <div class="circle-question" onclick="toggleAnswer('a2')">
-                        <span class="q-icon">🟡</span>
-                        <span>¿Cómo nos sentimos?</span>
-                        <span style="margin-left:auto">▼</span>
-                    </div>
-                    <div class="circle-answer" id="a2">
-                        José se sintió triste y excluido. Los guardianes son parte de su identidad y de su cultura de la
-                        Sierra.
-                    </div>
-
-                    <div class="circle-question" onclick="toggleAnswer('a3')">
-                        <span class="q-icon">🟢</span>
-                        <span>¿Cómo podemos arreglarlo?</span>
-                        <span style="margin-left:auto">▼</span>
-                    </div>
-                    <div class="circle-answer" id="a3">
-                        Podemos pedir disculpas, escuchar la historia de los guardianes y aprender juntos sobre las
-                        culturas de la Sierra y el Mar.
-                    </div>
-                </div>
-                <div class="nav-btns">
-                    <button class="btn btn-primary" onclick="goTo(6)">← Atrás</button>
-                    <button class="btn btn-green" onclick="goTo(8)">Siguiente →</button>
-                </div>
-            </div>
+        <div class="nav-btns"
+            style="position: fixed; bottom: 20px; width: calc(100% - 60px); left: 30px; border-top: none;">
+            <button class="btn btn-primary" onclick="goTo(6)">← Atrás</button>
+            <div class="btn-audio" onclick="toggleAudio()" style="position: static; transform: none;">🔊</div>
+            <button class="btn btn-green" onclick="goTo(8)">Siguiente →</button>
         </div>
-    </div>
 
-    <script>const currentScreen = 7;</script>
-    <script src="script.js"></script>
+
+
+        <script>
+            const currentScreen = 7;
+            const screenAudio = new Audio('audio/audio8.mp3'); // Cambia este archivo al audio correcto
+            function toggleAudio() {
+                if (screenAudio.paused) {
+                    screenAudio.play();
+                } else {
+                    screenAudio.pause();
+                }
+            }
+        </script>
+        <script src="script.js"></script>
 </body>
+
 </html>

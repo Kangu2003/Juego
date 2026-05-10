@@ -445,6 +445,31 @@ body {
     margin-top: 30px;
     padding-top: 20px;
     border-top: 2px dashed #E5E8E8;
+    position: relative;
+}
+
+.btn-audio {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #5EAA61;
+    color: white;
+    border: 3px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.btn-audio:active {
+    transform: translateX(-50%) scale(0.95);
 }
 
 /* ── EMOTION SELECTOR ── */
@@ -559,88 +584,163 @@ body {
 }
 
 /* ── DRAG AND DROP ── */
-.drag-area {
+.drag-layout-row {
     display: flex;
-    gap: 16px;
-    margin: 16px 0;
+    flex-direction: row;
+    gap: 15px;
+    align-items: stretch;
+    justify-content: center;
+    margin: 20px 0;
     flex-wrap: wrap;
+}
+
+.side-zone {
+    flex: 1;
+    min-width: 150px;
+}
+
+.center-zone {
+    flex: 2;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.castle-img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 6px 15px rgba(0,0,0,0.2));
+    transition: transform 0.3s;
+}
+
+.drag-zone.castle:hover .castle-img {
+    transform: scale(1.05);
 }
 
 .drag-zone {
     flex: 1;
-    min-width: 140px;
     min-height: 200px;
-    border: 3px dashed #ccc;
-    border-radius: 16px;
-    padding: 15px;
+    border-radius: 20px;
+    padding: 20px 15px;
     text-align: center;
-    transition: all 0.3s;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .drag-zone.sierra {
-    border-color: var(--mountain);
-    background: rgba(92, 139, 74, 0.06);
+    background: linear-gradient(180deg, #E6F3EB 0%, #C8E6C9 100%);
+    border: 4px solid var(--mountain);
+    box-shadow: inset 0 0 20px rgba(92, 139, 74, 0.15), 0 6px 15px rgba(0,0,0,0.05);
 }
 
 .drag-zone.mar {
-    border-color: var(--ocean);
-    background: rgba(58, 172, 204, 0.06);
+    background: linear-gradient(180deg, #E1F5FE 0%, #B3E5FC 100%);
+    border: 4px solid var(--ocean);
+    box-shadow: inset 0 0 20px rgba(58, 172, 204, 0.15), 0 6px 15px rgba(0,0,0,0.05);
 }
 
 .drag-zone.castle {
-    border-color: var(--sun);
-    background: rgba(244, 168, 41, 0.06);
+    background: linear-gradient(180deg, #FFF3E0 0%, #FFE0B2 100%);
+    border: 4px dashed var(--sun);
+    box-shadow: 0 8px 25px rgba(244, 168, 41, 0.2);
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.castle-hint {
+    font-size: 0.9rem;
+    color: var(--earth);
+    opacity: 0.7;
+    margin-bottom: 15px;
+    font-weight: 700;
 }
 
 .drag-zone.over {
-    transform: scale(1.03);
+    transform: scale(1.05);
     border-style: solid;
-    background: #EAEDED;
+    filter: brightness(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 .drag-zone-title {
     font-family: 'Baloo 2', cursive;
-    font-weight: 700;
-    font-size: 1.1rem;
-    margin-bottom: 10px;
+    font-weight: 800;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 2;
+    text-shadow: 1px 1px 0px rgba(255,255,255,0.8);
 }
 
 .drag-items {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px;
     justify-content: center;
-    margin-top: 10px;
+    position: relative;
+    z-index: 2;
 }
 
 .drag-item {
     background: white;
-    border: 2px solid #ddd;
-    border-radius: 12px;
-    padding: 10px 12px;
+    border: 3px solid #ddd;
+    border-radius: 16px;
+    padding: 12px;
     cursor: grab;
-    transition: all 0.2s;
-    font-size: 1.6rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     text-align: center;
     user-select: none;
+    min-width: 85px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
 }
 
+.drag-item.sierra-item { border-color: var(--mountain); }
+.drag-item.mar-item { border-color: var(--ocean); }
+
 .drag-item:hover {
-    transform: scale(1.1);
+    transform: translateY(-5px) scale(1.08);
     border-color: var(--sun);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 .drag-item:active {
     cursor: grabbing;
+    transform: scale(0.95);
+}
+
+.item-icon {
+    font-size: 2.2rem;
+    background: #F8F9F9;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.item-icon img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
 }
 
 .drag-item span {
     display: block;
-    font-size: 0.7rem;
-    font-weight: 700;
-    color: #666;
-    margin-top: 4px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--dark);
 }
 
 /* ── CARACOL ── */
@@ -885,6 +985,54 @@ body {
     color: #27AE60;
     font-size: 1.2rem;
 }
+
+/* ── NUEVOS ACUERDOS (PANTALLA 8) ── */
+.agreement-new-card {
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid transparent;
+    width: 200px;
+    height: 240px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    background: white; /* fallback */
+}
+
+.agreement-new-card:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.agreement-new-card.selected {
+    transform: scale(0.95);
+    opacity: 0.8;
+    filter: grayscale(0.5);
+}
+
+.bg-pink { background-color: #fbd5ce; border-color: #f7b2a6; }
+.bg-blue { background-color: #dbe4f0; border-color: #bccce0; }
+.bg-yellow { background-color: #ffe8b6; border-color: #ffd479; }
+.bg-purple { background-color: #e5d8ea; border-color: #d0b8d9; }
+
+.agreement-img {
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.agreement-text {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #222;
+    font-family: 'Nunito', sans-serif;
+}
+
 
 @media (max-width: 600px) {
     .agreements-grid {

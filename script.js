@@ -150,6 +150,7 @@ function dropItem(e, zone) {
         if (document.querySelectorAll('#items-castle .drag-item').length >= 2) {
             document.getElementById('fb6').style.display = 'block';
             document.getElementById('btn6next').style.display = 'inline-flex';
+            new Audio('audio/audio7.mp3').play();
         }
     } else {
         const target = document.getElementById('items-' + zone);
@@ -171,17 +172,23 @@ function resetDrag() {
     const itemsSierra = document.getElementById('items-sierra');
     if (itemsSierra) {
         itemsSierra.innerHTML = `
-        <div class="drag-item" draggable="true" ondragstart="dragStart(event)" data-zone="sierra">🧶<span>Tejidos</span></div>
-        <div class="drag-item" draggable="true" ondragstart="dragStart(event)" data-zone="sierra">🧸<span>Muñecos</span></div>
-        <div class="drag-item" draggable="true" ondragstart="dragStart(event)" data-zone="sierra">🌾<span>Semillas</span></div>`;
+        <div class="drag-item" draggable="true" ondragstart="dragStart(event)" data-zone="sierra">
+            <div class="item-icon"><img src="img/mochila.png" alt="Mochila"></div><span>Mochila</span></div>
+        <div class="drag-item" draggable="true" ondragstart="dragStart(event)" data-zone="sierra">
+            <div class="item-icon"><img src="img/muñeco.png" alt="Muñeco"></div><span>Muñeco</span></div>
+        <div class="drag-item" draggable="true" ondragstart="dragStart(event)" data-zone="sierra">
+            <div class="item-icon"><img src="img/rocas.png" alt="Rocas"></div><span>Rocas</span></div>`;
     }
 
     const itemsMar = document.getElementById('items-mar');
     if (itemsMar) {
         itemsMar.innerHTML = `
-        <div class="drag-item" draggable="true" ondragstart="dragStart(event)" data-zone="mar">🐚<span>Conchas</span></div>
-        <div class="drag-item" draggable="true" ondragstart="dragStart(event)" data-zone="mar">🐟<span>Peces</span></div>
-        <div class="drag-item" draggable="true" ondragstart="dragStart(event)" data-zone="mar">⭐<span>Estrellas</span></div>`;
+        <div class="drag-item" draggable="true" ondragstart="dragStart(event)" data-zone="mar">
+            <div class="item-icon">🐚</div><span>Conchas</span></div>
+        <div class="drag-item" draggable="true" ondragstart="dragStart(event)" data-zone="mar">
+            <div class="item-icon">🐟</div><span>Peces</span></div>
+        <div class="drag-item" draggable="true" ondragstart="dragStart(event)" data-zone="mar">
+            <div class="item-icon">⭐</div><span>Estrellas</span></div>`;
     }
 }
 
@@ -209,6 +216,7 @@ document.addEventListener('touchend', e => {
         if (document.querySelectorAll('#items-castle .drag-item').length >= 2) {
             document.getElementById('fb6').style.display = 'block';
             document.getElementById('btn6next').style.display = 'inline-flex';
+            new Audio('audio/audio2.mp3').play();
         }
     }
     touchItem = null;
@@ -223,9 +231,13 @@ function toggleAnswer(id) {
 }
 
 // ── AGREEMENTS ─────────────────────────────────────────────────────────────
-function toggleAgreement(btn) {
+function toggleAgreement(btn, audioFile = 'audio10.mp3') {
+    // Reproducir un sonido cada vez que se presiona un acuerdo
+    const clickSound = new Audio('audio/' + audioFile); // Cambia este archivo al sonido de clic que prefieras
+    clickSound.play();
+
     btn.classList.toggle('selected');
-    agreementsSelected = document.querySelectorAll('#s8 .agreement-btn.selected').length;
+    agreementsSelected = document.querySelectorAll('#s8 .agreement-new-card.selected').length;
 
     if (agreementsSelected >= 3) {
         document.getElementById('fb8').style.display = 'block';

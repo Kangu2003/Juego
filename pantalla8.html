@@ -1,55 +1,75 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guardianes entre la Sierra y el Mar</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="cloud cloud1"></div>
     <div class="cloud cloud2"></div>
 
     <div class="header">
-        <div class="title-main">
-            🏔️ Guardianes entre la<br>
-            <span class="sierra">Sierra</span> y el <span class="mar">Mar</span> 🌊
-        </div>
-        <div class="subtitle">Aprendemos a respetar jugando juntos</div>
         <div class="progress-wrap" id="progressBar"></div>
     </div>
 
-    <div id="game">
+    <div id="game" style="max-width: 95%; margin: 0 auto;">
         <div class="screen active" id="s8">
-            <div class="card">
-                <div class="panel-num">8</div>
-                <div class="card-title purple-color">🤝 Nuestros Acuerdos</div>
-                <div class="card-desc">Selecciona los acuerdos que nos ayudan a convivir en paz. ¡Puedes elegir varios!
+            <div class="card" style="background: transparent; border: none; box-shadow: none;">
+                <div class="panel-num" style="background: #6a4c93;">8</div>
+                <div class="card-title" style="color: #6a4c93; font-size: 2.5rem;">Nuestros acuerdos</div>
+                <div class="card-desc"
+                    style="font-size: 1.2rem; font-weight: 700; max-width: 600px; margin: 0 auto 30px; color: #333; background: transparent; border: none;">
+                    Seleccionemos los acuerdos que nos ayudan<br>a convivir en paz.
                 </div>
-                <div class="agreements-grid">
-                    <button class="agreement-btn" onclick="toggleAgreement(this)">
-                        <span class="agreement-emoji">❤️</span>
-                        <div class="agreement-label">Respetar</div>
+
+                <div class="agreements-new-grid"
+                    style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+
+                    <button class="agreement-new-card bg-pink" onclick="toggleAgreement(this, 'respetar.mp3')">
+                        <img src="img/respetar.png" alt="Respetar" class="agreement-img"
+                            onerror="this.style.display='none'">
+                        <div class="agreement-text">Respetar</div>
                     </button>
-                    <button class="agreement-btn" onclick="toggleAgreement(this)">
-                        <span class="agreement-emoji">🤲</span>
-                        <div class="agreement-label">Compartir</div>
+
+                    <button class="agreement-new-card bg-blue" onclick="toggleAgreement(this, 'compartir.mp3')">
+                        <img src="img/compartir.png" alt="Compartir" class="agreement-img"
+                            onerror="this.style.display='none'">
+                        <div class="agreement-text">Compartir</div>
                     </button>
-                    <button class="agreement-btn" onclick="toggleAgreement(this)">
-                        <span class="agreement-emoji">👂</span>
-                        <div class="agreement-label">Escuchar</div>
+
+                    <button class="agreement-new-card bg-yellow" onclick="toggleAgreement(this, 'escuchar.mp3')">
+                        <img src="img/escuchar.png" alt="Escuchar" class="agreement-img"
+                            onerror="this.style.display='none'">
+                        <div class="agreement-text">Escuchar</div>
                     </button>
-                    <button class="agreement-btn" onclick="toggleAgreement(this)">
-                        <span class="agreement-emoji">🚫😂</span>
-                        <div class="agreement-label">No burlarse</div>
+
+                    <button class="agreement-new-card bg-purple" onclick="toggleAgreement(this, 'no_burlarse.mp3')">
+                        <img src="img/no-burlarse.png" alt="No burlarse" class="agreement-img"
+                            onerror="this.style.display='none'">
+                        <div class="agreement-text">No burlarse</div>
                     </button>
+
                 </div>
-                <div class="feedback good" id="fb8" style="display:none">
-                    🌿 ¡Excelente! <strong>¡Juntos cuidamos a nuestros amigos y nuestras diferencias!</strong><br>
-                    Estos acuerdos nos hacen una comunidad más justa y amorosa.
+
+                <div class="feedback good" id="fb8"
+                    style="display:none; text-align: center; background: transparent; border: none; margin-top: 30px;">
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 15px;">
+                        <span style="font-size: 2rem;">🌿</span>
+                        <div style="font-size: 1.5rem; font-weight: 800; color: #333; font-family: 'Baloo 2', cursive;">
+                            ¡Juntos cuidamos a nuestros amigos<br>y nuestras diferencias!
+                        </div>
+                        <span style="font-size: 2rem;">🌿</span>
+                    </div>
                 </div>
-                <div class="nav-btns">
+
+                <div class="nav-btns"
+                    style="position: fixed; bottom: 20px; width: calc(100% - 60px); left: 30px; border-top: none;">
                     <button class="btn btn-primary" onclick="goTo(7)">← Atrás</button>
+                    <div class="btn-audio" onclick="toggleAudio()" style="position: static; transform: none;">🔊</div>
                     <button class="btn btn-green" id="btn8next" style="display:none" onclick="goTo(9)">Siguiente
                         →</button>
                 </div>
@@ -57,7 +77,18 @@
         </div>
     </div>
 
-    <script>const currentScreen = 8;</script>
+    <script>
+        const currentScreen = 8;
+        const screenAudio = new Audio('audio/audio9.mp3'); // Audio principal
+        function toggleAudio() {
+            if (screenAudio.paused) {
+                screenAudio.play();
+            } else {
+                screenAudio.pause();
+            }
+        }
+    </script>
     <script src="script.js"></script>
 </body>
+
 </html>
